@@ -1,0 +1,81 @@
+{
+  "name": "question-lab",
+  "version": "1.0.0",
+  "babel": {
+    "presets": [
+      "es2015-node6",
+      "stage-0",
+      "babili"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "plugins": [
+      "standard",
+      "promise"
+    ]
+  },
+  "description": "Inspired by the dirty lab, an project of web collaboration",
+  "main": "src/api/index.js",
+  "scripts": {
+    "start": "nodemon $2 --exec babel-node",
+    "debug": "nodemon $2 --exec babel-node --debug",
+    "benchmark": "babel-node benchmark",
+    "benchmark:watch": "nodemon $2 --exec babel-node benchmark",
+    "lint": "eslint src",
+    "lint:fix": "eslint --fix src",
+    "build": "babel -s true src -d dist",
+    "serve": "node dist/index.js",
+    "test": "mocha -c -S -R spec 'tests' --compilers js:babel-register --check-leaks",
+    "test:watch": "mocha -w -c -S -R spec 'tests' --compilers js:babel-register --check-leaks",
+    "test:reporter-nyan": "mocha -c -S -R nyan 'tests' --compilers js:babel-register --check-leaks",
+    "test:reporter-dot": "mocha -c -S -R dot 'tests' --compilers js:babel-register --check-leaks",
+    "test:reporter-list": "mocha -c -S -R list 'tests' --compilers js:babel-register --check-leaks",
+    "test:reporter-landing": "mocha -c -S -R landing 'tests' --compilers js:babel-register --check-leaks",
+    "test:export": "mocha -S -R mochawesome 'tests' --compilers js:babel-register --reporter-options reportDir=reports --check-leaks",
+    "scan:security": "nsp check",
+    "scan:updates": "ncu"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuanticPotatoes/question-lab.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QuanticPotatoes/question-lab/issues"
+  },
+  "homepage": "https://github.com/QuanticPotatoes/question-lab#readme",
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-node-debug": "^2.0.0",
+    "babel-preset-babili": "0.0.4",
+    "babel-preset-es2015-node6": "^0.3.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.14.0",
+    "babili": "0.0.6",
+    "benchmark": "^2.1.1",
+    "chai": "^3.5.0",
+    "eslint": "^3.5.0",
+    "eslint-config-airbnb": "15.0.1",
+    "eslint-config-airbnb-base": "11.2.0",
+    "eslint-config-import": "0.13.0",
+    "eslint-config-standard": "^6.0.1",
+    "eslint-plugin-jsx-a11y": "5.0.3",
+    "eslint-plugin-promise": "2.0.1",
+    "eslint-plugin-react": "7.0.1",
+    "eslint-plugin-standard": "^2.0.0",
+    "microtime": "^2.1.1",
+    "mocha": "^3.0.2",
+    "mochawesome": "^1.5.2",
+    "nodemon": "^1.10.2",
+    "npm-check-updates": "^2.8.0",
+    "nsp": "^2.6.1"
+  },
+  "dependencies": {
+    "babel-eslint": "7.2.3",
+    "eslint-plugin-import": "2.3.0",
+    "eslint-plugin-promise": "2.0.1",
+    "koa": "2.2.0"
+  }
+}

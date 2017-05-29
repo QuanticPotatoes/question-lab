@@ -1,0 +1,22 @@
+version: "2"
+services:
+    npm:
+        image: node:7.9.0
+        volumes:
+            - .:/app
+        entrypoint: ['npm']
+    server:
+        build:
+            context: ./dockerfile/dev
+        volumes:
+            - .:/app
+        working_dir: /app
+        links:
+            - mongo
+        ports:
+            - 3000:3000
+    mongo:
+        image: mongo:3.0.15
+        command: "--smallfiles"
+        ports:
+            - 27017:27017
