@@ -1,7 +1,10 @@
-import koa from 'koa';
+import Koa from 'koa';
+import mount from 'koa-mount';
+import controller from './controller';
 
-var lol = 'coucou';
+const app = new Koa();
 
+app.use(mount('/', controller));
+app.listen(3000);
 
-
-
+global.console.log('Server starting on port 3000');
